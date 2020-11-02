@@ -4,6 +4,9 @@
 #ifndef WX_PRECOMP
     #include <wx/wx.h>
 #endif
+
+#include <functional>
+
 class MyApp : public wxApp
 {
 public:
@@ -61,5 +64,10 @@ void MyFrame::OnAbout(wxCommandEvent& event)
 }
 void MyFrame::OnHello(wxCommandEvent& event)
 {
+    std::unique_ptr<int> opt;
+    if (opt)
+    {
+        auto ptr = std::make_unique<int>(2);
+    }
     wxLogMessage("Hello world from wxWidgets!");
 }
